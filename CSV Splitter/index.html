@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSV Split & Combine Tool</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 40px;
+      background: #f9f9f9;
+    }
+    .mode-button {
+      margin: 10px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .mode-button.active {
+      background-color: #0056b3;
+    }
+    #dropzone {
+      border: 3px dashed #aaa;
+      padding: 40px;
+      margin: 20px auto;
+      width: 70%;
+      background: white;
+      color: #666;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 30px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📁 CSV Split & Combine Tool</h1>
+
+  <div>
+    <button id="splitMode" class="mode-button active">Split Mode</button>
+    <button id="combineMode" class="mode-button">Combine Mode</button>
+  </div>
+
+  <div id="dropzone">Drop your CSV file(s) here or click to browse</div>
+  <input type="file" id="fileInput" class="hidden" accept=".csv" multiple>
+
+  <div id="result"></div>
+
+  <script>
+    let currentMode = 'split';
+
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+    const result = document.getElementById('result');
+    const splitBtn = document.getElementById('splitMode');
+    const combineBtn = document.getElementById('combineMode');
+
+    splitBtn.addEventListener('click', () => switchMode('split'));
+    combineBtn.addEventListener('click', () => switchMode('combine'));
+
+    function switchMode(mode) {
+      currentMode = mode;
+      result.innerHTML = '';
+      fileInput.value = '';
+      splitBtn.classList.toggle('active', mode === 'split');
+      combineBtn.classList.toggle('active', mode === 'combine');
+      dropzone.innerText = mode === 'split'
+        ? 'Drop a single CSV file here to split (800–1000 rows)'
+        : 'Drop multiple CSV files here to combine (group by Yes/No)';
+    }
+
+    dropzone.addEventListener('click', () => fileInput.click());
+
+    dropzone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropzone.style.background = '#e0f7e0';
+    });
+
+    dropzone.addEventListener('dragleave', e => {
+      e.preventDefault();
+      dropzone.style.background = 'white';
+    });
+
+    dropzone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropzone.style.background = 'white';
+      handleFiles(e.dataTransfer.files);
+    });
+
+    fileInput.addEventListener('change', () => {
+      handleFiles(fileInput.files);
+    });
+
+    async function handleFiles(files) {
+      if (currentMode === 'split' && files.length !== 1) {
+        alert('Please drop only ONE CSV file to split.');
+        return;
+      }
+
+      const formData = new FormData();
+      for (let file of files) {
+        formData.append('files', file);
+      }
+
+      result.innerHTML = 'Processing...';
+
+      const res = await fetch(currentMode === 'split' ? '/split' : '/combine', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await res.json();
+      result.innerHTML = '<h3>Download File(s):</h3>';
+
+      if (Array.isArray(data)) {
+        
+        data.forEach(name => {
+          const a = document.createElement('a');
+          a.href = `/download/${name}`;
+          a.innerText = name;
+          a.download = name;
+          a.style.display = 'block';
+          result.appendChild(a);
+        });
+      } else {
+        
+        const a = document.createElement('a');
+        a.href = `/download/${data.filename}`;
+        a.innerText = data.filename;
+        a.download = data.filename;
+        a.style.display = 'block';
+        result.appendChild(a);
+      }
+    }
+  </script>
+</body>
+</html>
