@@ -1,0 +1,39 @@
+"Cost per message in USD on the WhatsApp Business Platform, effective July 1, 2025",,,,,,
+We charge on a per-message basis on the WhatsApp Business Platform. Learn more here:,,,,https://developers.facebook.com/docs/whatsapp/pricing,,
+Marketing rates apply across Cloud API and Marketing Messages Lite API. Learn more here:,,,,https://developers.facebook.com/docs/whatsapp/pricing,,
+"Some markets are mapped to a ""Rest of"" region or ""Other."" Learn more here:",,,,https://developers.facebook.com/docs/whatsapp/pricing#country-calling-codes,,
+"In some markets, we have authentication-international rates. Learn more here: ",,,,https://developers.facebook.com/docs/whatsapp/pricing/authentication-international-rates,,
+Market,Currency,Marketing,Utility,Authentication,"Authentication-
+International",Service
+Argentina,$US,0.0618,0.0289,0.0289,n/a,n/a
+Brazil,$US,0.0625,0.0068,0.0068,n/a,n/a
+Chile,$US,0.0889,0.0200,0.0200,n/a,n/a
+Colombia,$US,0.0125,0.0002,0.0002,n/a,n/a
+Egypt,$US,0.1073,0.0052,0.0052,0.0650,n/a
+France,$US,0.1432,0.0300,0.0300,n/a,n/a
+Germany,$US,0.1365,0.0550,0.0550,n/a,n/a
+India,$US,0.0107,0.0014,0.0014,0.0280,n/a
+Indonesia,$US,0.0411,0.0250,0.0250,0.1360,n/a
+Israel,$US,0.0353,0.0053,0.0053,n/a,n/a
+Italy,$US,0.0691,0.0300,0.0300,n/a,n/a
+Malaysia,$US,0.0860,0.0140,0.0140,0.0418,n/a
+Mexico,$US,0.0436,0.0085,0.0085,n/a,n/a
+Netherlands,$US,0.1597,0.0500,0.0500,n/a,n/a
+Nigeria,$US,0.0516,0.0067,0.0067,0.0750,n/a
+Pakistan,$US,0.0473,0.0054,0.0054,0.0750,n/a
+Peru,$US,0.0703,0.0200,0.0200,n/a,n/a
+Russia,$US,0.0802,0.0400,0.0400,n/a,n/a
+Saudi Arabia,$US,0.0455,0.0115,0.0115,0.0598,n/a
+South Africa,$US,0.0379,0.0076,0.0076,0.0200,n/a
+Spain,$US,0.0615,0.0200,0.0200,n/a,n/a
+Turkey,$US,0.0109,0.0053,0.0053,n/a,n/a
+United Arab Emirates,$US,0.0384,0.0157,0.0157,0.0510,n/a
+United Kingdom,$US,0.0529,0.0220,0.0220,n/a,n/a
+North America,$US,0.0250,0.0040,0.0040,n/a,n/a
+Rest of Africa,$US,0.0225,0.0040,0.0040,n/a,n/a
+Rest of Asia Pacific,$US,0.0732,0.0113,0.0113,n/a,n/a
+Rest of Central & Eastern Europe,$US,0.0860,0.0212,0.0212,n/a,n/a
+Rest of Latin America,$US,0.0740,0.0113,0.0113,n/a,n/a
+Rest of Middle East,$US,0.0341,0.0091,0.0091,n/a,n/a
+Rest of Western Europe,$US,0.0592,0.0171,0.0171,n/a,n/a
+Other,$US,0.0604,0.0077,0.0077,n/a,n/a
