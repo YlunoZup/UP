@@ -1,0 +1,115 @@
+/* Base styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* Wrapper with background image */
+.auth-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* ensure pseudo-element stays clipped */
+}
+
+/* Add background image with transparency via pseudo-element */
+.auth-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../images/auth/signin-image.svg") no-repeat center center;
+  background-size: cover;
+  opacity: 0.4; /* adjust transparency level */
+  z-index: 0;
+}
+
+/* Content above background */
+.overlay-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #fff;
+}
+
+/* Welcome text */
+.welcome-text {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Form wrapper (solid white, no transparency) */
+.form-wrapper {
+  background: #fff;
+  border-radius: 8px;
+  padding: 25px;
+  color: #333;
+}
+
+.form-wrapper h6 {
+  margin-bottom: 10px;
+}
+
+/* Bottom section */
+.signin-bottom {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button-group-social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.button-group-social button {
+  flex: 1;
+}
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .overlay-content {
+    max-width: 500px;
+    padding: 30px;
+  }
+
+  .button-group-social {
+    flex-direction: row;
+    gap: 15px;
+  }
+}
+
+/* Desktop refinements */
+@media (min-width: 992px) {
+  .overlay-content {
+    max-width: 600px;
+  }
+}
+
+/* Large desktop refinements */
+@media (min-width: 1200px) {
+  .overlay-content {
+    max-width: 700px;
+  }
+}
+
+/* Mobile-specific background and layout tweaks */
+@media (max-width: 767px) {
+  .overlay-content {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .form-wrapper {
+    padding: 20px;
+  }
+}
