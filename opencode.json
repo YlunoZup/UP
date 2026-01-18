@@ -1,0 +1,60 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "scitely": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Scitely AI",
+      "options": {
+        "baseURL": "https://api.scitely.com/v1",
+        "apiKey": "YOUR_API_KEY_HERE"
+      },
+      "models": {
+        "qwen3-coder-plus": {
+          "name": "Qwen3 Coder Plus"
+        },
+        "tstars2.0": {
+          "name": "TStars 2.0"
+        },
+        "qwen3-max": {
+          "name": "Qwen3 Max"
+        },
+        "qwen3-vl-plus": {
+          "name": "Qwen3 VL Plus"
+        },
+        "qwen3-max-preview": {
+          "name": "Qwen3 Max Preview"
+        },
+        "kimi-k2-0905": {
+          "name": "Kimi K2 0905"
+        },
+        "glm-4.6": {
+          "name": "GLM 4.6"
+        },
+        "kimi-k2": {
+          "name": "Kimi K2"
+        },
+        "deepseek-v3.2": {
+          "name": "DeepSeek V3.2"
+        },
+        "deepseek-r1": {
+          "name": "DeepSeek R1"
+        },
+        "deepseek-v3": {
+          "name": "DeepSeek V3"
+        },
+        "qwen3-32b": {
+          "name": "Qwen3 32B"
+        },
+        "qwen3-235b-a22b-thinking-2507": {
+          "name": "Qwen3 235B A22B Thinking"
+        },
+        "qwen3-235b-a22b-instruct": {
+          "name": "Qwen3 235B A22B Instruct"
+        },
+        "qwen3-235b": {
+          "name": "Qwen3 235B"
+        }
+      }
+    }
+  }
+}
